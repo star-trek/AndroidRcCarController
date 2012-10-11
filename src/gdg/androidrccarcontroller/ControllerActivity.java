@@ -2,6 +2,9 @@ package gdg.androidrccarcontroller;
 
 import java.io.ByteArrayOutputStream;
 
+import org.json.JSONObject;
+
+import gdg.androidrccarcontroller.tool.ServerCallback;
 import gdg.androidrccarcontroller.tool.ServerConnector;
 import gdg.androidrccarcontroller.view.CameraSurfaceView;
 import android.os.Bundle;
@@ -15,7 +18,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.widget.LinearLayout;
 
-public class ControllerActivity extends Activity implements PreviewCallback{
+public class ControllerActivity extends Activity implements PreviewCallback, ServerCallback{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,12 @@ public class ControllerActivity extends Activity implements PreviewCallback{
 		Log.i("image", ""+imageQuality);
 
 		ServerConnector.getInstance().pushImage(out.toByteArray());
+	}
+
+	@Override
+	public void onServerCallback(JSONObject data) {
+		// TODO Auto-generated method stub
+		
 	}
 
     
