@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".ControllerActivity"
-            android:label="@string/title_activity_controller" >
+            android:label="@string/title_activity_controller" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

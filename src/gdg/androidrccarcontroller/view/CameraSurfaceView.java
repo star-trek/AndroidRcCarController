@@ -8,7 +8,6 @@ import android.hardware.Camera;
 import android.hardware.Camera.PreviewCallback;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.widget.ImageView;
 
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback
 {
