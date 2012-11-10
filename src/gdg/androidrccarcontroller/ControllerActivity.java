@@ -2,8 +2,10 @@ package gdg.androidrccarcontroller;
 
 import java.io.ByteArrayOutputStream;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import gdg.androidrccarcontroller.tool.BluetoothConnector;
 import gdg.androidrccarcontroller.tool.ServerCallback;
 import gdg.androidrccarcontroller.tool.ServerConnector;
 import gdg.androidrccarcontroller.view.CameraSurfaceView;
@@ -30,6 +32,8 @@ public class ControllerActivity extends Activity implements PreviewCallback, Ser
         CameraSurfaceView cameraSurfaceView = new CameraSurfaceView(this);
         cameraSurfaceView.setPreviewCallback(this);
         linearLayout.addView(cameraSurfaceView);
+        BluetoothConnector.getInstance().open(this);
+        ServerConnector.getInstance().setServerCallback(this);
     }
 
     @Override
@@ -69,8 +73,13 @@ public class ControllerActivity extends Activity implements PreviewCallback, Ser
 
 	@Override
 	public void onServerCallback(JSONObject data) {
-		// TODO Auto-generated method stub
-		
+		try {
+			Log.i("blue", "" + (char)data.getInt("lr") + (char)data.getInt("fb"));
+			BluetoothConnector.getInstance().sendSerial((char)data.getInt("lr"), (char)data.getInt("fb"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
     

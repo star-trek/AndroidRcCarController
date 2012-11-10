@@ -16,7 +16,7 @@ public class ServerConnector{
 	private static ServerConnector instance = null;
 	private Socket socket = null;
 	private BufferedOutputStream bufferedOutputStream = null;
-	private ServerCallback callback;
+	private ServerCallback callback = null;
 	
 	public ServerConnector() {
 		new Thread(new Runnable() {
@@ -60,6 +60,9 @@ public class ServerConnector{
 	long pingTime = 1;
 	boolean streamWriting = false;
 
+	public void setServerCallback(ServerCallback callback) {
+		this.callback = callback;
+	}
 	
 	private Runnable outputThread = new Runnable() {
 		@Override
