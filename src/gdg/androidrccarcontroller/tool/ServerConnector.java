@@ -20,7 +20,6 @@ public class ServerConnector{
 	
 	public ServerConnector() {
 		new Thread(new Runnable() {
-			@Override
 			public void run() {
 				try {
 					socket = new Socket("rc.lkl.kr", 1024);
@@ -65,7 +64,6 @@ public class ServerConnector{
 	}
 	
 	private Runnable outputThread = new Runnable() {
-		@Override
 		public void run() {
 			int no=0;
 			try {
@@ -95,7 +93,6 @@ public class ServerConnector{
 	
 	private Runnable inputThread = new Runnable() {
 		
-		@Override
 		public void run() {
 			try{
 				InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
