@@ -29,6 +29,8 @@ public class BluetoothConnector {
 	public static BluetoothConnector getInstance() {
 		if(instance==null){
 			instance = new BluetoothConnector();
+		} else if (instance!=null) {
+			//TODO
 		}
 		return instance;
 	}

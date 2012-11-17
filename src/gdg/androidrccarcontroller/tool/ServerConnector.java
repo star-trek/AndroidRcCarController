@@ -18,11 +18,13 @@ public class ServerConnector{
 	private BufferedOutputStream bufferedOutputStream = null;
 	private ServerCallback callback = null;
 	
+	static public String serverAddress = "soran.lkl.kr";
+	
 	public ServerConnector() {
 		new Thread(new Runnable() {
 			public void run() {
 				try {
-					socket = new Socket("rc.lkl.kr", 1024);
+					socket = new Socket(serverAddress, 1024);
 					bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());
 					new Thread(inputThread).start();
 					new Thread(outputThread).start();
@@ -33,6 +35,16 @@ public class ServerConnector{
 			}
 		}).start();
 	}
+	
+	//ServerAddress Control
+	static public String getServerAddress(){
+		return serverAddress;
+	}
+	
+	static public void setServerAddress(String addr){
+		serverAddress = addr;
+	}
+	//
 	
 	public static ServerConnector getInstance() {
 		if(instance==null){

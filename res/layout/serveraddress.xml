@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView 
+        android:id="@+id/servertext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="서버 주소를 입력해주세요."/>
+    <EditText
+        android:id="@+id/serveredit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="server"/>
+    <Button
+        android:id="@+id/okbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="확인"/>
+
+</LinearLayout>
